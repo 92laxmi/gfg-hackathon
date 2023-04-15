@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Form Validation
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="static/script.js"></script>
+    
+</head>
+<style>
+    * {
+
+        box-sizing: border-box;
+        border-radius: 5px;
+
+    }
+
+    body {
+       
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+         background-image: url('https://wallpaperaccess.com/full/1282794.jpg');
+         background-repeat: no-repeat;
+         background-attachment: fixed;
+         background-size: 100% 100%;
+
+
+    }
+
+    .container {
+        background-color: white;
+        border-radius: 5px;
+        width: 500px;
+        max-width: 100%;
+    }
+
+    .header {
+        background-color: #d2f8fc;
+        border-bottom: 1px solid black;
+        color: rgb(91, 164, 243);
+        padding: 30px 40px;
+    }
+
+    .header h2 {
+        margin: 0;
+        text-align: center;
+    }
+
+    .form {
+        padding: 30px 40px;
+    }
+
+    .form-control {
+        margin-bottom: 10px;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+    .form-control label {
+        display: inline-block;
+        margin-bottom: 4px;
+    }
+
+    .form-control input {
+        border: 2px solid #f0f0f0;
+        border-radius: 4px;
+        display: block;
+        font-family: inherit;
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+    }
+
+
+    .form button {
+        background-color: rgb(8, 203, 247);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: block;
+        font-size: 16px;
+        font-family: inherit;
+        padding: 10px;
+        width: 100%;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Patient Details</h2>
+        </div>
+        <form class="form" name="myform" method="post" action=""  id="patientdetails" onsubmit="return validationform()">
+            {% csrf_token %}
+            <div class="form-control">
+                <label>Name</label>
+                <input type="text" placeholder="Enter Your name" name="name" id="name">
+
+            </div>
+            <div class="form-control">
+                <label>Age</label>
+                <input type="numbers" placeholder="Enter your age" name="age" id="age">
+
+            </div>
+
+            <div class="form-control">
+                <label>Gender: </label> <hr> <br>  
+                    <input type="radio" id="gender" name="gender" placeholder="select gender" value="male"/> Male    
+                    <br> 
+                    <input type="radio" id="gender" name="gender" placeholder="select gender" value="female"/> Female <br>
+                    <input type="radio" id="gender" name="gender" placeholder="select gender" value="other"/> Other <br/>  
+                    
+            </div>
+
+            <div class="form-control">
+                <label>Address</label>
+                <input type="text" placeholder="Enter your address" name="address" id="address" >
+            </div>
+
+
+            <div class="form-control">
+                <label> Zip code</label>
+                <input type="digit" placeholder="Enter ZipCode" name="digit" id="zipcode">
+            </div>
+            <div class="form-control">
+                <label>Any medical history</label>
+                <input type="file" id="myFile" placeholder="select file" name="filename">
+            </div>
+
+            <div class="form-control">
+                <label>Upload ECG image</label>
+                <input type="file" id="ecg" placeholder="select file" name="filename">
+            </div>
+
+
+            <button type="submit"> <a href="{% url 'result' %}">Submit</a></button>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function validationform() {
+            
+            var name = document.myform.name.value;
+            var age = document.myform.age.value;
+            var gender = document.myform.gender.value;
+            var address = document.myform.address.value;
+            var ZipCode = document.myform.digit.value;
+            if (name == '') {
+                alert("Name required field.");
+                return false;
+            }
+            if (age == '') {
+                alert("Age required field.");
+                return false;
+            }
+            if ( ( form.gender[0].checked == false ) && ( form.gender[1].checked == false ) ) 
+            {
+            alert ( "Please choose your Gender: Male or Female" ); 
+            return false;
+            }
+            if (address == '') {
+                alert("please enter address.");
+                return false;
+            }
+            if (ZipCode != 'numbers') {
+                alert("enter valid elements");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
