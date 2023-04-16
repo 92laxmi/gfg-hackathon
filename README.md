@@ -29,7 +29,7 @@ $ python manage.py runserver
 
 
 **Tech stack:**
-**Front end**
+**Front end:**
 Django
 HTML
 CSS
