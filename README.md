@@ -1,5 +1,6 @@
 # GfG-hackathon
-heart disease detection
+
+MeDOC - Heart Disease Diagnosis System
 
 
 **Installation**
@@ -39,5 +40,6 @@ JavaScript
 Google cloud platform
 AMD instances
 Google Colab - ML
+Python
 
 
