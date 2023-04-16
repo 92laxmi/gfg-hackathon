@@ -1,4 +1,4 @@
-# gfg-hackathon
+# GfG-hackathon
 heart disease detection
 
 
@@ -36,8 +36,8 @@ Bootstrap
 JavaScript
 
 **Back end**
-Goole cloud platform
+Google cloud platform
 AMD instances
-ML
+Google Colab - ML
 
 
